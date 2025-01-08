@@ -16,6 +16,7 @@ For Wizards
 
 ## Hardware
 Touch Screen: Dell P2418HT
+
 Camera: Hikvision 2K Computer Camera
 
 ## Run Prototype
