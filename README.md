@@ -20,10 +20,14 @@ Backend
   python3 route.py
   ~~~~
 
-## Wizard Operation
+# Wizard Operation
 This experiment requires 2 wizards
 1. Wizard A: Fulfill the AI awareness function
 2. Wizard B: Complement the communication function
 
+We recommand the two wizards practice several trials (at least 3) together to get familiar with the workflow and coordinate with each other.
+
 # Special Notes
-1. This experiment
+1. The experiments were originally conducted in **Chinese**. Involved prompts were translated to English in this repository.
+2. Potential discrepencies in results might exist in replications conducted in a different language due to the differences in speech speed and sentence length across languages.
+3. The experiments originally used the **GPT-4 turbo model**, which can be deprecated in future update.
