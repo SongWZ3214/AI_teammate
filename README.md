@@ -7,7 +7,7 @@ For participants
 - Keyboard*1
 - Mouse*1
 - Stylus pen*1
-- Touch screen (display and operate the prototype): Dell P2418HT
+- Touchscreen (display and operate the prototype): Dell P2418HT
 - Camera: Hikvision 2K Computer Camera
 - Computer (run frontend)
 
