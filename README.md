@@ -3,14 +3,14 @@
 ## Hardware
 
 ## Run Prototype
-- Frontend
+Frontend
 
   ~~~~
   cd frontend
   yarn start
   ~~~~
 
-- Backend
+Backend
 
   ~~~~
   cd backend
