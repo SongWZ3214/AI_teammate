@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react'
 import Message from './message'
 import styles from '../../AI_teammate.module.scss'
 import { message } from 'antd'
-import { Keyboard, VoiceOne } from '@icon-park/react'
+import { BackgroundColor, Keyboard, VoiceOne } from '@icon-park/react'
 import { Redo } from '@icon-park/react'
-import { Button } from 'antd'
+import { Button, Input } from 'antd'
 
 interface ChatMessage {
     id: number
@@ -22,14 +22,14 @@ const ChatBox: React.FC = () => {
 
     const [messageApi, contextHolder] = message.useMessage()
 
-    // 从后端恢复数据
+    // restore data from backend
   const restoreData = async () => {
     const msg_response = await fetch('http://127.0.0.1:5020/api/getMessages')
     const savedMsg = await msg_response.json()
     setMessages(savedMsg)
   }
 
-  // 将数据保存到后端
+  // store data to backend
   const saveData = async () => {
     await fetch('http://127.0.0.1:5020/api/saveMessages', {
       method: 'POST',
@@ -188,19 +188,19 @@ const ChatBox: React.FC = () => {
     }
 
     const reGenerate = async (id: number) => {
-        // 创建要发送的数据对象
+        // create object of sent data
         const sendData = { "mode": 2, "prompt": "重新回复一下上一条信息" }
 
         const wait = '思考中，请稍等片刻'
         speak(wait)
 
-        // 发送 POST 请求
+        // send POST request
         const response = await fetch('http://127.0.0.1:5020/chat', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json', // 设置请求头为 JSON
+                'Content-Type': 'application/json', // set head to JSON
             },
-            body: JSON.stringify(sendData), // 将数据对象转换为 JSON 字符串并发送
+            body: JSON.stringify(sendData), // transfer object to JSON and send
         })
 
         const receivedData = await response.json()
@@ -227,7 +227,7 @@ const ChatBox: React.FC = () => {
             const recognitionInstance = new speechRecognition()
             recognitionInstance.continuous = true
             recognitionInstance.interimResults = true
-            recognitionInstance.lang = 'zh-CN' // 设置所需的语言
+            recognitionInstance.lang = 'zh-CN' // set language
         
             recognitionInstance.onresult = (event: SpeechRecognitionEvent) => {
                 let finalTranscript = ''
@@ -283,25 +283,22 @@ const ChatBox: React.FC = () => {
                 ))}
             </div>
             <div className={styles['send-container']}>
-                <div className={styles['row']}>
-                    <VoiceOne theme="outline" size="30" fill="#333" style={{top: 2, position: 'relative'}}/>
-                    <textarea
-                        className={styles['chat-speech-input']}
-                        value={speechText}
-                        onChange={e => setSpeechText(e.target.value)}
-                    />
-                    <button onClick={saveData} className={styles['save-button']}>Save</button>
-                </div>
-                <div className={styles['row']}>
-                    <Keyboard theme="outline" size="30" fill="#333" style={{top: 2, position: 'relative'}}/>
-                    <textarea
-                        className={styles['chat-text-input']}
-                        value={inputText}
-                        onChange={e => setInputText(e.target.value)}
-                        placeholder="Type your message here..."
-                    />
-                    <button onClick={() => handleSend(inputText, 2)} className={styles['send-button']}>Send</button>
-                </div>
+                <VoiceOne className={styles['chat-icon']} theme="outline" size="32" fill="#333"/>
+                <Input
+                    className={styles['chat-speech-input']}
+                    value={speechText}
+                    onChange={e => setSpeechText(e.target.value)}
+                    disabled
+                />
+                <button onClick={saveData} className={styles['save-button']}>Save</button>
+                <Keyboard className={styles['chat-icon']} theme="outline" size="32" fill="#333"/>
+                <Input
+                    className={styles['chat-text-input']}
+                    value={inputText}
+                    onChange={e => setInputText(e.target.value)}
+                    placeholder="Type your message here..."
+                />
+                <button onClick={() => handleSend(inputText, 2)} className={styles['send-button']}>Send</button>
             </div>
         </div>
     )

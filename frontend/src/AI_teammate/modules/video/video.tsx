@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
 import styles from '../../AI_teammate.module.scss'
+import { Button, Select } from 'antd'
 
 const Video = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null)
@@ -51,19 +52,20 @@ const Video = () => {
   return (
     <div className={styles['video-container']}>
       <div className={styles['video-controls']}>
-        <button onClick={toggleCamera}>
-          {isCameraOn ? '关闭摄像头' : '开启摄像头'}
-        </button>
-        <select
-          onChange={(e) => setSelectedDevice(e.target.value)}
+        <Button className={styles['toggle-camera-btn']} type='primary' onClick={toggleCamera}>
+          {isCameraOn ? 'Camera Off' : 'Camera On'}
+        </Button>
+        <Select
+          onChange={(value) => setSelectedDevice(value)}
           value={selectedDevice}
+          className={styles['toggle-camera-select']}
         >
           {devices.map((device) => (
-            <option key={device.deviceId} value={device.deviceId}>
+            <Select.Option key={device.deviceId} value={device.deviceId}>
               {device.label || `Camera ${device.deviceId}`}
-            </option>
+            </Select.Option>
           ))}
-        </select>
+        </Select>
       </div>
       <video
         className={styles['camera']}

@@ -34,10 +34,10 @@ function App() {
     }
     return (
       <div className="loginPageForProbe">
-        <Input size="large" placeholder="请输入API" prefix={<KeyOutlined />} value={api} onChange={(e) => setAPI(e.target.value)} />
+        <Input size="large" placeholder="Please enter your GPT-4o API" prefix={<KeyOutlined />} value={api} onChange={(e) => setAPI(e.target.value)} />
         <br />
         <br />
-        <Button type="primary" onClick={() => { handleLogin(api) }}>提交</Button>
+        <Button type="primary" onClick={() => { handleLogin(api) }}>Confirm</Button>
       </div>
     )
   };
