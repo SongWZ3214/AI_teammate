@@ -1,3 +1,6 @@
+# Introduction
+This is the guideline for replicating the Wizard-of-Oz experiments in paper **An Exploratory Study on How AI Awareness Impacts Human-AI Design Collaboration**. We introduce how to set up the environment and the workflow for the wizards below.
+
 # Environment Setup
 
 ## Hardware
@@ -18,6 +21,9 @@ Backend
   ~~~~
 
 ## Wizard Operation
-Number of Wizards needed: 2
+This experiment requires 2 wizards
 1. Wizard A: Fulfill the AI awareness function
 2. Wizard B: Complement the communication function
+
+# Special Notes
+1. This experiment
