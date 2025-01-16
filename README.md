@@ -1,5 +1,5 @@
 # Introduction
-This is the guideline for replicating the Wizard-of-Oz experiments in paper **An Exploratory Study on How AI Awareness Impacts Human-AI Design Collaboration**. We introduce how to set up the environment and the workflow for the wizards below.
+This is the guideline for replicating the Wizard-of-Oz experiments in paper **An Exploratory Study on How AI Awareness Impacts Human-AI Design Collaboration**. Read our paper [here](https://doi.org/10.1145/3708359.3712162) (not online yet)! We introduce how to set up the environment and the workflow for the wizards below.
 
 # Setting up the Environment
 ## Preparing Materials
@@ -53,7 +53,7 @@ We recommand the two wizards practice several trials (at least 3) together to ge
 |                     |Refine      |Improving the solution                                  |
 |Other                |Stagnate    |Idling or hesitating for a while without progress       |
 
-Responsibility in the Aware condition: Monitor the participants through shared screen using the online meeting software, judge their 
+Responsibility in the Aware condition: Monitor the participants through shared screen using the online meeting software, judge their design activities using the above coding scheme (originated from [Kim et al.](https://doi.org/10.1115/DETC2006-99654)), compose and send prompts to Wizard B.
 
 Responsibility in the Non-aware condition: 
 
