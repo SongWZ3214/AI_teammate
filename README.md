@@ -55,7 +55,7 @@ We recommand the two wizards practice several trials (at least 3) together to ge
 
 Responsibility in the Aware condition: Monitor the participants through shared screen using the online meeting software, judge their design activities using the above coding scheme (originated from [Kim et al.](https://doi.org/10.1115/DETC2006-99654)), compose and send prompts to Wizard B.
 
-Step control
+Step Control
 ~~~~
 // Step 1->Step 2
 
@@ -100,10 +100,18 @@ We are currently in Step [ ], please think divergently/convergently according to
 
 
 # Workflow
+We mainly describe the workflow for setting up the environment and operating the system here, for other experimental steps, please refer to our paper (section 4).
 
 ## Before experiment
+Initialize GPT with predefined prompts (see Appendix B in our paper)
 
 ## During experiment
+### Wizard A
+1. Compose and send Step Control prompts to Wizard A when tranferring from step1->step 2 or step 2-> step 3
+2. compose and send Proactive Response prompts to Wizard A per 60-90 seconds.
+
+### Wizard B
+1. 
 
 # Special Notes
 1. The experiments were originally conducted in **Chinese**. Involved prompts in this repository are translated versions.
