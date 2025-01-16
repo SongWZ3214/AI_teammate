@@ -97,14 +97,14 @@ We are currently in Step [ ], please think divergently/convergently according to
 ~~~~
 
 ### Wizard B (for communication)
-
+Wizard A will operate the backend following the workflow below:
+![Wizard A workflow](/assets/wizardA-workflow.jpg)
 
 # Workflow
 We mainly describe the workflow for setting up the environment and operating the system here, for other experimental steps, please refer to our paper (section 4).
 
 ## Before experiment
 Set up your environment. Participant's and Wizards' positions are illustrated below:
-![Wizard A workflow](/assets/wizardA-workflow.jpg)
 
 Initialize GPT with predefined prompts (see Appendix B in our paper)
 ## During experiment
