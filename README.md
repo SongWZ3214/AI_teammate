@@ -105,7 +105,7 @@ We mainly describe the workflow for setting up the environment and operating the
 
 ## Before experiment
 Set up your environment. Participant's and Wizards' positions are illustrated below:
-
+![Wizard A workflow](/assets/participantsPosition.jpg)
 Initialize GPT with predefined prompts (see Appendix B in our paper)
 ## During experiment
 ### Wizard A
