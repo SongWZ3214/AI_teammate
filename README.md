@@ -111,7 +111,8 @@ Initialize GPT with predefined prompts (see Appendix B in our paper)
 2. compose and send Proactive Response prompts to Wizard A per 60-90 seconds.
 
 ### Wizard B
-1. 
+1. Judge whether the received message should be sent to GPT
+2. Respond to various situations using the predefined command described above
 
 # Special Notes
 1. The experiments were originally conducted in **Chinese**. Involved prompts in this repository are translated versions.
