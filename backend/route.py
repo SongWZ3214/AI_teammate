@@ -150,6 +150,11 @@ def chat():
         result = asyncio.run(gpt.text2Image(work_path, prompt))
         return jsonify(result)
     elif mode == '3':
+        # 确认图片路径
+        change_img = input("Change the active image? ")
+        if change_img == 'y':
+            img_name = input("Active image: ")
+            set_active_image(f'http://127.0.0.1:5020/images/{img_name}')
         # 询问图片
         print("Mode 3 use img: " + active_image)
         result = asyncio.run(gpt.ask_image(work_path, prompt, active_image))

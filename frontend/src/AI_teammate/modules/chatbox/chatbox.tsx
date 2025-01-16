@@ -137,7 +137,7 @@ const ChatBox: React.FC = () => {
         })
         const needReply = await res.json()
         if(needReply.text === "needReply"){
-            const response = await fetch('http://127.0.0.1:5020/giveinfo', {
+            const response = await fetch('http://127.0.0.1:5020/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
