@@ -1,8 +1,8 @@
 # Introduction
 This is the guideline for replicating the Wizard-of-Oz experiments in paper **An Exploratory Study on How AI Awareness Impacts Human-AI Design Collaboration**. We introduce how to set up the environment and the workflow for the wizards below.
 
-# Environment
-## Materials
+# Setting up the Environment
+## Preparing Materials
 For participants
 - Keyboard*1
 - Mouse*1
@@ -15,20 +15,18 @@ For Wizards
 - Any real-time messaging software for sending (Wizard A) and receiving (Wizard B) messages
 - Any online meeting software supporting share-screen function and recording
 
-## Run Prototype
-todo: 前后端分离
+## Running Prototype
+Frontend and backend should be hosted on the same server should you replicate the experiment. Participants will access the system through a link, and Wizard B should monitor and operate at the backend.
 
-Frontend
+Run frontend
 
   ~~~~
-  cd frontend
   yarn start
   ~~~~
 
-Backend
+Run backend
 
   ~~~~
-  cd backend
   python3 route.py
   ~~~~
 
@@ -43,6 +41,21 @@ We recommand the two wizards practice several trials (at least 3) together to ge
 ## Operations
 
 ### Wizard A (for awareness)
+|**Primamry class**   |**Subclass**|**Example actions**|
+|Problem Understanding|Understand  |Understanding design assignment and task|
+|                     |Gather      |Collecting data about user or external information|
+|                     |Clarify     |Defining design constraints and objectives|
+|Idea Generation      |Generate    |Generating helpful idea for partial solution|
+|                     |Judge       |Evaluating ideas and data|
+|Design Elaboration   |Elaborate   |Finding technical solution, realizing function and shape|
+|                     |Evaluate    |Assessing the solution|
+|                     |Refine      |Improving the solution|
+|Other                |Stagnate    |Idling or hesitating for a while without progress|
+
+Responsibility in the Aware condition: Monitor the participants through shared screen using the online meeting software, judge their 
+
+Responsibility in the Non-aware condition: 
+
 
 ### Wizard B (for communication)
 
@@ -53,5 +66,5 @@ We recommand the two wizards practice several trials (at least 3) together to ge
 ## During experiment
 
 # Special Notes
-1. The experiments were originally conducted in **Chinese**. Involved prompts were translated to English in this repository.
+1. The experiments were originally conducted in **Chinese**. Involved prompts in this repository are translated versions.
 2. The experiments originally used the **GPT-4 turbo model**, which can be deprecated in future update.
