@@ -57,8 +57,9 @@ Responsibility in the Aware condition: Monitor the participants through shared s
 
 Step control
 ~~~~
-// Step 1: Headphone
-We are designing headphone concepts.
+// Step 1->Step 2
+
+We are designing \[ \] concepts. // input current task
 Our target user is: \[ \] // input the target user participants chose
 The requirements we should focus on are: // input the requirements perticipant chose
 - Requirement 1
@@ -66,10 +67,37 @@ The requirements we should focus on are: // input the requirements perticipant c
 - ...
 ~~~~
 
-Responsibility in the Non-aware condition: compose and send prompts to Wizard B.
+~~~~
+// Step 2-> Step 3
 
+We have broken down the requirements considering the target user. Next, we should focus on the following key requirements:
+- Key requirement 1
+- Key requirement 2
+- ...
+~~~~
+
+Proactive Response
+~~~~
+// With canvas capture
+
+We are currently in Step [ ], designer’s design activity is [ ], and the content the designer is currently working on is presented in the image. // attach the image when sending this prompt to Wizard B
+Your feedback is:
+~~~~
+
+~~~~
+// Without canvas capture
+
+We are currently in Step [ ], designer’s design activity is [ ].
+Your feedback is:
+~~~~
+
+Responsibility in the Non-aware condition: compose and send prompts to Wizard B.
+~~~~
+We are currently in Step [ ], please think divergently/convergently according to Requirement [ ].
+~~~~
 
 ### Wizard B (for communication)
+
 
 # Workflow
 
