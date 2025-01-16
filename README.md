@@ -41,9 +41,9 @@ We recommand the two wizards practice several trials (at least 3) together to ge
 ## Operations
 
 ### Wizard A (for awareness)
-|**Primamry class**   |**Subclass**|**Example actions**|
-|Problem Understanding|Understand  |Understanding design assignment and task                |
+|**Primamry class**   |**Subclass**|**Example actions**                                     |
 |:--------------------|:-----------|:-------------------------------------------------------|
+|Problem Understanding|Understand  |Understanding design assignment and task                |
 |                     |Gather      |Collecting data about user or external information      |
 |                     |Clarify     |Defining design constraints and objectives              |
 |Idea Generation      |Generate    |Generating helpful idea for partial solution            |
