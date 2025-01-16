@@ -42,15 +42,16 @@ We recommand the two wizards practice several trials (at least 3) together to ge
 
 ### Wizard A (for awareness)
 |**Primamry class**   |**Subclass**|**Example actions**|
-|Problem Understanding|Understand  |Understanding design assignment and task|
-|                     |Gather      |Collecting data about user or external information|
-|                     |Clarify     |Defining design constraints and objectives|
-|Idea Generation      |Generate    |Generating helpful idea for partial solution|
-|                     |Judge       |Evaluating ideas and data|
+|Problem Understanding|Understand  |Understanding design assignment and task                |
+|---------------------|------------|--------------------------------------------------------|
+|                     |Gather      |Collecting data about user or external information      |
+|                     |Clarify     |Defining design constraints and objectives              |
+|Idea Generation      |Generate    |Generating helpful idea for partial solution            |
+|                     |Judge       |Evaluating ideas and data                               |
 |Design Elaboration   |Elaborate   |Finding technical solution, realizing function and shape|
-|                     |Evaluate    |Assessing the solution|
-|                     |Refine      |Improving the solution|
-|Other                |Stagnate    |Idling or hesitating for a while without progress|
+|                     |Evaluate    |Assessing the solution                                  |
+|                     |Refine      |Improving the solution                                  |
+|Other                |Stagnate    |Idling or hesitating for a while without progress       |
 
 Responsibility in the Aware condition: Monitor the participants through shared screen using the online meeting software, judge their 
 
