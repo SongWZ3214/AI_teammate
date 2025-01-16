@@ -55,7 +55,18 @@ We recommand the two wizards practice several trials (at least 3) together to ge
 
 Responsibility in the Aware condition: Monitor the participants through shared screen using the online meeting software, judge their design activities using the above coding scheme (originated from [Kim et al.](https://doi.org/10.1115/DETC2006-99654)), compose and send prompts to Wizard B.
 
-Responsibility in the Non-aware condition: 
+Step control
+~~~~
+// Step 1: Headphone
+We are designing headphone concepts.
+Our target user is: \[ \] // input the target user participants chose
+The requirements we should focus on are: // input the requirements perticipant chose
+- Requirement 1
+- Requirement 2
+- ...
+~~~~
+
+Responsibility in the Non-aware condition: compose and send prompts to Wizard B.
 
 
 ### Wizard B (for communication)
