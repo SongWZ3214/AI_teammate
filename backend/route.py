@@ -128,17 +128,8 @@ def chat():
     isrewrite = input("Rewrite the prompt? ")
     if isrewrite == 'y':
         prompt = input("Final Prompt: ")
-    if input_mode == 1:
-        limit = input("选择一个限制条件：\n1. 简单回答即可，字数不超过60字\n2. 以对话的语气，回答3个要点即可，不做过多解释，字数不超过60字\n请输入选择的编号：")
-        if limit == '1':
-            prompt += "，简单回答即可，字数不超过60字"
-        elif limit == '2':
-            prompt += "，以对话的语气，回答3个要点即可，不做过多解释，字数不超过60字"
-    elif input_mode == 2:
-        long = input("是否详细回答? ")
-        if long == 'y':
-            prompt += "，请详细介绍"
-        prompt += "，回答不超过400字"
+    
+    prompt += "，以对话的语气，回答3个要点即可，不做过多解释，字数不超过100字"
         
     mode = input("Choose a mode: ")
     if mode == '1':
@@ -160,23 +151,18 @@ def chat():
         result = asyncio.run(gpt.ask_image(work_path, prompt, active_image))
         return jsonify(result)
     elif mode == '4':
-        # 不调用gpt
-        response = input("Give your response: ")
-        result = {"text": response}
-        return jsonify(result)
-    elif mode == '5':
         prompt = active_text + prompt
         result = asyncio.run(gpt.chat(prompt))
         return jsonify(result)
-    elif mode == '6':
+    elif mode == '5':
         prompt = active_text + prompt
         result = asyncio.run(gpt.text2Image(work_path, prompt))
         return jsonify(result)
-    # elif mode == '7':
-    #     print("Mode 7 use img: " + active_image)
-    #     guidance = asyncio.run(gpt.ask_image(work_path, prompt, active_image))
-    #     result = asyncio.run(gpt.text2Image(work_path, guidance["text"]))
-    #     return jsonify(result)
+    elif mode == '6':
+        # for test, send msg directly
+        response = input("Give your response: ")
+        result = {"text": response}
+        return jsonify(result)
     else:
         return jsonify({"text": "noReply"})
     # else:
