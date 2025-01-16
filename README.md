@@ -103,8 +103,10 @@ We are currently in Step [ ], please think divergently/convergently according to
 We mainly describe the workflow for setting up the environment and operating the system here, for other experimental steps, please refer to our paper (section 4).
 
 ## Before experiment
-Initialize GPT with predefined prompts (see Appendix B in our paper)
+Set up your environment. Participant's and Wizards' positions are illustrated below:
+![Wizard A workflow](/assets/wizardA-workflow.jpg)
 
+Initialize GPT with predefined prompts (see Appendix B in our paper)
 ## During experiment
 ### Wizard A
 1. Compose and send Step Control prompts to Wizard A when tranferring from step1->step 2 or step 2-> step 3
