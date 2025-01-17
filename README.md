@@ -97,21 +97,24 @@ We are currently in Step [ ], please think divergently/convergently according to
 ~~~~
 
 ### Wizard B (for communication)
-
+Wizard A will operate the backend following the workflow below:
+![Wizard A workflow](/assets/wizardA-workflow.jpg)
 
 # Workflow
 We mainly describe the workflow for setting up the environment and operating the system here, for other experimental steps, please refer to our paper (section 4).
 
 ## Before experiment
+Set up your environment. Participant's and Wizards' positions are illustrated below:
+![Wizard A workflow](/assets/participantsPosition.jpg)
 Initialize GPT with predefined prompts (see Appendix B in our paper)
-
 ## During experiment
 ### Wizard A
 1. Compose and send Step Control prompts to Wizard A when tranferring from step1->step 2 or step 2-> step 3
 2. compose and send Proactive Response prompts to Wizard A per 60-90 seconds.
 
 ### Wizard B
-1. 
+1. Judge whether the received message should be sent to GPT
+2. Respond to various situations using the predefined command described above
 
 # Special Notes
 1. The experiments were originally conducted in **Chinese**. Involved prompts in this repository are translated versions.
