@@ -6,7 +6,7 @@ import requests
 import os
 import base64
 from PIL import Image
-# import wget
+import json
 
                             
 openai.api_key = config.OPENAI_KEY  
@@ -156,7 +156,7 @@ class GPTInstancePool:
             
             # 构建从当前目录到 images 目录的相对路径
             images_dir = os.path.join(work_path, 'images')
-            active_img = active_img.replace("http://127.0.0.1:6327/images", images_dir)
+            active_img = active_img.replace("http://127.0.0.1:5020/images", images_dir)
             upload_img = active_img.replace("images", "compressed_images")
             self.compress_image_by_size(active_img, upload_img, (512, 512))
             # print(upload_img)
@@ -219,6 +219,88 @@ class GPTInstancePool:
             return {
                 "text": response_content
             }
+        except Exception as e:
+            print(f"Error: 调用GPT图片提问失败，{str(e)}")
+            return {
+                "text": ""
+            }
+        finally:
+            await self.gpt_instances.put(gpt_instance)
+    
+    async def text_image(self, work_path, prompt, active_img):
+        async with self.semaphore:
+            gpt_instance = await self.gpt_instances.get()
+        try:
+            print("text with image: ")
+            print(prompt)
+            # print(base64_image) # base64_image 是 B64编码
+        
+            client = openai.AsyncOpenAI(
+                api_key=config.OPENAI_KEY,
+                base_url=config.OPENAI_BASE_URL
+            )
+            
+            # 构建从当前目录到 images 目录的相对路径
+            images_dir = os.path.join(work_path, 'images')
+            active_img = active_img.replace("http://127.0.0.1:5020/images", images_dir)
+            upload_img = active_img.replace("images", "compressed_images")
+            self.compress_image_by_size(active_img, upload_img, (512, 512))
+            # print(upload_img)
+            with open(upload_img,'rb') as f:
+                base64_image = base64.b64encode(f.read()).decode('utf-8')
+                
+            action_decision = (
+                '''
+                你是一名AI设计师，你要与人类设计师协作完成设计任务，在这个过程中你负责决策另一个AI设计师的行为。
+                现在人类设计师在与你对话，并向你提出了问题。请你综合所给信息分析人类设计师现在的设计状态以及遇到的设计问题，并选择生成文本还是图片对人类设计师进行反馈。
+                1. 生成文本设计建议；2. 生成图片，辅助设计师思考。
+                请你以json格式输出，分为三个字段，一个字段为“type”，值为所选行为的序号，有且仅有一个数字；第二个字段为“analysis”，字符串格式，包括对设计师设计状态和面临设计问题的分析，不超过50个字；
+                第三个字段为“prompt”，字符串格式，在prompt字段里不需要回答设计师的问题，也不需要执行所选择的生成任务，仅需针对选择的行为设计提示词，以指导另一个界面设计师执行选择的生成任务。
+                “prompt”字段的内容可以采用祈使句，如“生成xxx”或者“请你提供xxx”等格式，表述简洁明了，不超过30字。
+                '''
+            )
+            
+            msg = {
+                    "role": "user",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": prompt,
+                        },
+                        {
+                            "type": "text",
+                            "text": action_decision,
+                        },
+                        {
+                        "type": "image_url",
+                        "image_url": {
+                            "url": f"data:image/jpeg;base64,{base64_image}"
+                        }
+                        }]
+                    }
+            response = await client.chat.completions.create(
+                model="gpt-4o",
+                response_format={ "type": "json_object" },
+                messages=[self.initial]+self.history+[msg],
+                max_tokens=600,
+            )
+            
+            first_choice = response.choices[0]
+            message = first_choice.message
+            response_content = message.content
+            
+            print()
+            print("Response:")
+            print(response_content)
+            
+            behaviour = json.loads(response_content)
+            if(behaviour["type"] == 1):
+                result = self.ask_image(work_path, prompt, active_img)
+                return result
+            else:
+                new_prompt = behaviour["analysis"]+behaviour["prompt"]
+                result = self.text2Image(self, work_path, new_prompt)
+                return result
         except Exception as e:
             print(f"Error: 调用GPT图片提问失败，{str(e)}")
             return {

@@ -157,7 +157,7 @@ def chat():
             set_active_image(f'http://127.0.0.1:5020/images/{img_name}')
         # 询问图片
         print("Mode 3 use img: " + active_image)
-        result = asyncio.run(gpt.ask_image(work_path, prompt, active_image))
+        result = asyncio.run(gpt.text_image(work_path, prompt, active_image))
         return jsonify(result)
     elif mode == '4':
         # 不调用gpt
